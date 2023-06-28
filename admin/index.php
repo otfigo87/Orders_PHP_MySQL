@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
-    <link rel="stylesheet" href="../css/admin.css" />
-</head>
-
-<body>
-    <!-- Menu Section -->
-    <div class="menu">
-        <div class="wrapper">
-            Menu Here
-        </div>
-    </div>
+<?php include('partials/menu.php'); ?>
 
     <!-- Main content -->
     <div class="main-content">
-        <div class="wrapper">
-            Content
+        <div class="wrapper boxes">
+
+            <div class="col-4 text-center">
+                <h1>5</h1>
+                <br />
+                Categories
+            </div>
+            <div class="col-4 text-center">
+                <h1>5</h1>
+                <br />
+                Categories
+            </div>
+            <div class="col-4 text-center">
+                <h1>5</h1>
+                <br />
+                Categories
+            </div>
+            <div class="col-4 text-center">
+                <h1>5</h1>
+                <br />
+                Categories
+            </div>
         </div>
     </div>
 
     <!-- Footer Section -->
-    <div class="footer">
-        <div class="wrapper">
-            Footer
-        </div>
-    </div>
-
-</body>
-
-</html>
+    <?php include('partials/footer.php'); ?>
