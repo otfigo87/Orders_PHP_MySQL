@@ -4,6 +4,17 @@
     <div class="wrapper">
         <h1>Add Admin</h1>
 
+        <br /><br /><br />
+
+        <?php
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add']; // Display Session message
+            unset($_SESSION['add']); // Remove Session message
+        }
+        ?>
+
+        <br /><br />
+
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>

@@ -24,24 +24,48 @@
                 <th>Username</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1.</td>
-                <td>Otmane</td>
-                <td>otmane</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1.</td>
-                <td>Otmane</td>
-                <td>otmane</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+
+            <?php
+
+            $sql = "SELECT * FROM table_admin"; //Query
+            $res = mysqli_query($conn, $sql); //Execute query
+
+            if ($res == TRUE) {
+                // counts Rows to check if we have data in our DB
+                $count = mysqli_num_rows($res);
+
+                $sn = 0; // create variable to use for S.N
+
+                if ($count > 0) {
+                    while ($rows = mysqli_fetch_assoc($res)) {
+                        //data in our table
+                        $id = $rows['id'];
+                        $sn++;
+                        $full_name = $rows['full_name'];
+                        $username = $rows['username'];
+
+                        //Display the values in our table
+            ?>
+                        <tr>
+                            <td><?php echo $sn; ?></td>
+                            <td><?php echo $full_name; ?></td>
+                            <td><?php echo $username; ?></td>
+                            <td>
+                                <a href="#" class="btn-secondary">Update Admin</a>
+                                <a href="#" class="btn-danger">Delete Admin</a>
+                            </td>
+                        </tr>
+
+            <?php
+                    }
+                } else {
+                    //No Data in DataBase
+                }
+            }
+
+
+            ?>
+
 
         </table>
     </div>
