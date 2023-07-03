@@ -4,7 +4,15 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Manage Admin</h1>
-        <br />
+        <br /><br /><br />
+
+        <?php
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add']; // Display Session message
+            unset($_SESSION['add']); // Remove Session message
+        }
+        ?>
+        <br /><br />
 
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
         <br /><br /><br />

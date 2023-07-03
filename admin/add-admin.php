@@ -53,7 +53,23 @@ if (isset($_POST['submit'])) {
 
     // Execute query
 
-    // $res = mysqli_query($conn, $sql) or die(mysqli_error());
+    $res = mysqli_query($conn, $sql) or die(mysqli_error()); //$conn is in the config file
+
+    // Check whether the data is inserted or not and display message
+
+    if ($res) {
+        // echo 'Data inserted';
+        // Create a session to display message
+        $_SESSION['add'] = "Admin Added Successfully";
+        // And Redirect Page to Manage Admin Page
+        header("location:" . SITE_URL . '/admin/manage-admin.php');
+    } else {
+        // echo 'failed to insert data';
+        // Create a session to display message
+        $_SESSION['add'] = "Failed to add Admin";
+        // And Redirect Page to Manage Add Admin Page
+        header("location:" . SITE_URL . '/admin/add-admin.php');
+    }
 }
 
 ?>
