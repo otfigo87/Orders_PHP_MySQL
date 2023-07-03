@@ -34,10 +34,10 @@
 <?php include('partials/footer.php'); ?>
 
 <!-- Process data from the Form and save it in the MySql database -->
-<?php  
+<?php
 
 // Check whether the submit button is clicked
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     // Button Clicked
     // Get data from form
     $full_name = $_POST['full_name'];
@@ -52,11 +52,8 @@ if(isset($_POST['submit'])){
     ";
 
     // Execute query
-    $conn = mysqli_connect('localhost', 'otmane', '1234') or die(mysqli_error()); //db Connection
-    $db_select = mysqli_select_db($conn,'food-order') or die(mysqli_error()); //Select db
 
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
-
+    // $res = mysqli_query($conn, $sql) or die(mysqli_error());
 }
 
 ?>

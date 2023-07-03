@@ -1,3 +1,7 @@
+<!-- Connection to Database -->
+<?php include('../config/constants.php'); ?>
+<!-- Connection to Database -->
+
 <!DOCTYPE html>
 <html lang="en">
 
