@@ -7,11 +7,19 @@
         <br /><br /><br />
 
         <?php
+        //ADD MESSAGE
         if (isset($_SESSION['add'])) {
             echo $_SESSION['add']; // Display Session message
             unset($_SESSION['add']); // Remove Session message
         }
+
+        //DELETE MESSAGE
+        if (isset($_SESSION['delete'])) {
+            echo $_SESSION['delete']; 
+            unset($_SESSION['delete']); 
+        }
         ?>
+        
         <br /><br />
 
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
@@ -51,7 +59,7 @@
                             <td><?php echo $username; ?></td>
                             <td>
                                 <a href="#" class="btn-secondary">Update Admin</a>
-                                <a href="#" class="btn-danger">Delete Admin</a>
+                                <a href="<?php echo SITE_URL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
 
