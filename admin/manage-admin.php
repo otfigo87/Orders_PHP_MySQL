@@ -15,11 +15,11 @@
 
         //DELETE MESSAGE
         if (isset($_SESSION['delete'])) {
-            echo $_SESSION['delete']; 
-            unset($_SESSION['delete']); 
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
         }
         ?>
-        
+
         <br /><br />
 
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
@@ -58,7 +58,7 @@
                             <td><?php echo $full_name; ?></td>
                             <td><?php echo $username; ?></td>
                             <td>
-                                <a href="#" class="btn-secondary">Update Admin</a>
+                                <a href="<?php echo SITE_URL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-secondary">Update Admin</a>
                                 <a href="<?php echo SITE_URL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
