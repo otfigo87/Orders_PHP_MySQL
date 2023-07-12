@@ -40,10 +40,9 @@
                     while ($rows = mysqli_fetch_assoc($res)) {
                         //data in our table
                         $id = $rows['id'];
-                        $sn++;
                         $full_name = $rows['full_name'];
                         $username = $rows['username'];
-
+                        $sn++;
                         //Display the values in our table
             ?>
                         <tr>

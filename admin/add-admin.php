@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
     $sql = " INSERT INTO table_admin SET
     full_name ='$full_name',
     username = '$username',
-    password='$password'
+    password = '$password'
     ";
 
     // Execute query
