@@ -12,11 +12,11 @@ $res = mysqli_query($conn, $sql);
 if($res == true) {
     //Admin deleted
     // echo "Admin deleted";
-    $_SESSION['delete'] = "Admin Deleted Successfully";
+    $_SESSION['delete'] = "<div class='success'>Admin Deleted Successfully.</div>";
     header("location:" . SITE_URL . '/admin/manage-admin.php');
 } else {
     // echo "Failed to delete Admin";
-    $_SESSION['delete'] = "Failed to delete Admin";
+    $_SESSION['delete'] = "<div class='error'>Failed to delete Admin.</div>";
 }
 
 
