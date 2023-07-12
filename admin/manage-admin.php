@@ -18,6 +18,12 @@
             echo $_SESSION['delete'];
             unset($_SESSION['delete']);
         }
+        
+        //UPDATE MESSAGE
+       if (isset($_SESSION['update'])) {
+           echo $_SESSION['update'];
+           unset($_SESSION['update']);
+}
         ?>
 
         <br /><br />
