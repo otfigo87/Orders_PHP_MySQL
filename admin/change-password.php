@@ -34,7 +34,7 @@
                 <tr>
                     <td col-span="2">
                         <input type="submit" name="submit" value="Change Password" class="btn-secondary" >
-                        <input type="hidden" name="id" value="<?php echo $id; ?>"> 
+                        <input type="hidden" name="id" value="<?php echo $id; ?>" > 
                     </td>
                 </tr>
             </table>
@@ -42,6 +42,49 @@
     </div>
 </div>
 
+<?php
+
+if(isset($_POST['submit'])){
+    // Get Data
+    $id = $_POST['id'];
+    $current_password = md5($_POST['current_password']);
+    $new_password = md5($_POST['new_password']);
+    $confirm_password = md5($_POST['confirm_password']);
+
+    // Check user Id and Current password exists or not
+    $sql = "SELECT * FROM table_admin WHERE id=$id AND password='$current_password'";
+    $res = mysqli_query($conn, $sql);
+
+    if ($res == true) {
+        $count = mysqli_num_rows($res);
+
+        if($count == 1){
+            // user exist and password can be changed
+            // echo "User Found";
+            if($new_password==$confirm_password){
+                //UPDATE PASSWORD
+                $sql2 = "UPDATE table_admin SET password='$new_password' WHERE id=$id";
+                $res2 = mysqli_query($conn, $sql2);
+                if($res2 == true) {
+                    $_SESSION['password-change'] = "<div class='success'>Password Changed successfully </div>";
+                    header("location:" . SITE_URL . '/admin/manage-admin.php');
+                }else{
+                    $_SESSION['password-change'] = "<div class='error'>Failed to change </div>";
+                    header("location:" . SITE_URL . '/admin/manage-admin.php');
+                }
+
+            }else {
+                $_SESSION['pwd-not-match'] = "<div class='error'>Password Did Not Match!</div>";
+                header("location:" . SITE_URL . '/admin/manage-admin.php');
+            }
+            }else {
+            $_SESSION['user-not-found'] = "<div class='error'>User Not Found!</div>";
+            header("location:" . SITE_URL . '/admin/manage-admin.php');
+        }
+    }
+}
+
+?>
 
 
 <?php include('./partials/footer.php'); ?>

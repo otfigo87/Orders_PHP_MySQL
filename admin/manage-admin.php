@@ -24,6 +24,20 @@
             echo $_SESSION['update'];
             unset($_SESSION['update']);
         }
+
+        //Password Change MESSAGES
+        if (isset($_SESSION['user-not-found'])) {
+            echo $_SESSION['user-not-found'];
+            unset($_SESSION['user-not-found']);
+        }
+        if (isset($_SESSION['pwd-not-match'])) {
+            echo $_SESSION['pwd-not-match'];
+            unset($_SESSION['pwd-not-match']);
+        }
+        if (isset($_SESSION['password-change'])) {
+            echo $_SESSION['password-change'];
+            unset($_SESSION['password-change']);
+        }
         ?>
 
         <br /><br />
