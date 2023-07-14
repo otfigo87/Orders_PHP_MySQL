@@ -31,12 +31,12 @@ include('partials/menu.php');
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
-                    <td>Full Name: </td>
+                    <td colspan="2">Full Name: </td>
                     <td><input type="text" name="full_name" value="<?php echo $full_name ?>"></td>
                 </tr>
 
                 <tr>
-                    <td>Username: </td>
+                    <td colspan="2">Username: </td>
                     <td><input type="text" name="username" value="<?php echo $username ?>"></td>
                 </tr>
 
@@ -59,7 +59,7 @@ include('partials/menu.php');
 if (isset($_POST['submit'])) {
     // Button Clicked
     // Get data from form
-    $id = $_POST['id']; 
+    $id = $_POST['id'];
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
 
@@ -72,12 +72,12 @@ if (isset($_POST['submit'])) {
     // Execute query
     $res = mysqli_query($conn, $sql);
 
-    if($res == true){
+    if ($res == true) {
         $_SESSION['update'] = "<div class='success'>Admin Updated Successfully</div>";
-        header("location:" . SITE_URL . '/admin/manage-admin.php');   
+        header("location:" . SITE_URL . '/admin/manage-admin.php');
     } else {
         $_SESSION['update'] = "<div class='error'>Failed to Update Admin</div>";
-        header("location:" . SITE_URL . '/admin/manage-admin.php');  
+        header("location:" . SITE_URL . '/admin/manage-admin.php');
     }
 }
 ?>
