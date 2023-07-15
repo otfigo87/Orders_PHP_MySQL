@@ -2,6 +2,20 @@
 <?php include('../config/constants.php'); ?>
 <!-- Connection to Database -->
 
+<?php
+// Authorization - access control
+// Check if the user is logged in or not
+
+if (!isset($_SESSION["user"])) { //if user session is not set
+    //user is not logged in
+    $_SESSION["no-login-message"] = "<div class='error'>Please login to access Admin Panel.</div>";
+    //Redirect
+    header('location:' . SITE_URL . 'admin/login.php');
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
