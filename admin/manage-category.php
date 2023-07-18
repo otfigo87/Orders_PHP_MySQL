@@ -6,7 +6,7 @@
 
         <br />
 
-        <a href="#" class="btn-primary">Add Category</a>
+        <a href="<?php echo SITE_URL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
         <br /><br /><br />
 
         <table class="tbl-full">
