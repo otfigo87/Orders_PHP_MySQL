@@ -5,6 +5,14 @@
         <h1>Add Category</h1>
         <br /><br /><br />
 
+        
+        <?php
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add']; 
+            unset($_SESSION['add']); // Remove Session message
+        }
+        ?>
+
 
         <form action="" method="POST">
             <table class="tbl-30">
@@ -37,7 +45,39 @@
         </form>
 
         <?php 
-        
+        if(isset($_POST['submit'])){
+            // Button clicked => Get values from the form
+            $title = $_POST['title'];
+            //Check Radio input
+            if(isset($_POST['featured'])){
+                $featured = $_POST['featured'];
+            }else{
+                $featured = "No";
+            }
+
+            if (isset($_POST['active'])) {
+                $active = $_POST['active'];
+            } else {
+                $active = "No";
+            }
+
+            //SQL Queries
+            $sql = "INSERT INTO table_category SET 
+            title='$title',
+            featured='$featured',
+            active='$active'
+            ";
+
+            $res = mysqli_query($conn, $sql);
+
+            if($res == true){
+                $_SESSION['add'] = "<div class='success'>Category Added Successfully.</div>";
+                header('location:'.SITE_URL.'admin/manage-category.php');
+            }else {
+                $_SESSION['add'] = "<div class='error'>Failed to Add.</div>";
+                header('location:' . SITE_URL . 'admin/add-category.php');
+            }
+        }
         ?>
 
 
